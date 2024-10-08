@@ -1,19 +1,22 @@
 void setup() {
-  size(590, 500);
+  size(500, 500);
 }
 
 
 void draw() {
   for (int row=0; row<9; row = row+1)
   {
-    check(row);
-    square(row*65, 50, 50);
+    for (int col=0; col<9; col = col+1)
+    {
+      check(row,col);
+      square((row*55) + random(0, 3), (col*55), 50);
+    }
   }
 }
 
 
-void check(int num) {
-  if (mouseX > num*65 && mouseX < num*65+50  && mouseY > 50  && mouseY < 100) {
+void check(int num, int num2) {
+  if (mouseX > num*55 && mouseX < num*55+50  && mouseY > num2*55  && mouseY < num2*55+50) {
     fill(#8EFFF5);
   } else {
     fill(#FFBF8E);
